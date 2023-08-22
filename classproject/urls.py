@@ -30,6 +30,8 @@ urlpatterns = [
     path('about/',about,name='about'),
     path('',home,name='home'),
     path('vege/',reciepies,name='reciepe'),
+    path('delete/<rec_id>/',delete_reciepe,name='reciepe'),
+    path('update/<rec_id>/',update_reciepe,name='reciepe'),
 ]
 
 

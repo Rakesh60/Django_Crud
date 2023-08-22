@@ -1,71 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reciepe App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reciepe App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 </head>
+
 <body>
-   <div class="container mt-5">
-    <form action="" class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
-        <h2>Add Reciepe</h2>
-        <hr>
-        <div class="mb-3">
-            <label for="" class="form-label">Reciepe Name</label>
-         <input type="text" required
-          class="form-control" name="reciepe_name" id="" aria-describedby="helpId" placeholder="">
-        
-        </div>
+  <div class="container mt-5">
+    <form action="" class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>Add Reciepe</h2>
+      <hr>
+      <div class="mb-3">
+        <label for="" class="form-label">Reciepe Name</label>
+        <input type="text" required class="form-control" name="reciepe_name" id="" aria-describedby="helpId"
+          placeholder="">
 
-        <div class="mb-3">
-            <label for="" class="form-label">Reciepe Desc</label>
-            <textarea class="form-control"  required name="reciepe_description" id="" rows="3"></textarea>
-        </div>
+      </div>
 
-        <div class="mb-3">
-            <label for="" class="form-label">Reciepe Image</label>
-            <input type="file" class="form-control" name="reciepe_image" id="" placeholder="" aria-describedby="fileHelpId">
-            
-        </div>
-        <button type="submit" class="btn btn-success">Add Reciepe</button>
-        </form>
+      <div class="mb-3">
+        <label for="" class="form-label">Reciepe Desc</label>
+        <textarea class="form-control" required name="reciepe_description" id="" rows="3"></textarea>
+      </div>
 
-   </div>
+      <div class="mb-3">
+        <label for="" class="form-label">Reciepe Image</label>
+        <input type="file" class="form-control" name="reciepe_image" id="" placeholder="" aria-describedby="fileHelpId">
 
-   <div class="container table card ">
+      </div>
+      <button type="submit" class="btn btn-success">Add Reciepe</button>
+    </form>
+
+    <div class="mt-5">
+      <div class="mx-auto col-6">
+        <form action="">
+          <div class="mb-3">
+            <label for="" class="form-label">Search</label>
+            <input type="text" required class="form-control" name="search" id="" aria-describedby="helpId"
+              placeholder="">
+
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="container table card mt-5">
 
     {{ reciepie }}
 
 
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Reciepe Name</th>
-            <th scope="col">Reciepie Description</th>
-            <th scope="col">Reciepe Image</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for rec in reciepe %}
-          <tr>
-            <th scope="row">{{forloop.counter}}</th>
-            <td>{{rec.reciepe_name}}</td>
-            <td>{{rec.reciepe_description}}</td>
-            <td><img width="50" src="/media/{{rec.reciepe_image}}" alt=""></td>
-          </tr>
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Reciepe Name</th>
+          <th scope="col">Reciepie Description</th>
+          <th scope="col">Reciepe Image</th>
+          <th scope="col" class="text-center" colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for rec in reciepe %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{rec.reciepe_name}}</td>
+          <td>{{rec.reciepe_description}}</td>
+          <td><img width="50" src="/media/{{rec.reciepe_image}}" alt=""></td>
+          <td><a href="/delete/{{rec.id}}" class="btn btn-danger">Delete </a></td>
+          <td><a href="/update/{{rec.id}}" class="btn btn-warning">Update</a></td>
+        </tr>
 
-            {% endfor %}
-         
-        </tbody>
-      </table>
+        {% endfor %}
 
-   </div>
+      </tbody>
+    </table>
+
+  </div>
 </body>
+
 </html>
