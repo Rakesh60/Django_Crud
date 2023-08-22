@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <h1 class="text-center bg-dark text-light">This is a about Page</h1>
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Class</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>About Us</h1>
+
+    <p>We are a team of passionate designers and developers who are committed to creating beautiful and user-friendly
+      websites. We believe that every website should be a reflection of its owner's brand, and we take pride in creating
+      websites that are both visually appealing and functionally effective.</p>
+
+    <p>We started our company in 2020 with the goal of helping businesses of all sizes create websites that would help
+      them achieve their goals. We have since worked with a wide range of clients, from small businesses to Fortune 500
+      companies.</p>
+
+    <p>We are constantly learning and evolving, and we are always looking for new ways to improve our services. We
+      believe that the best way to learn is by doing, and we are always eager to take on new challenges.</p>
+
+    <p>If you are looking for a team of experienced and dedicated designers and developers who can help you create a
+      website that you will be proud of, then we encourage you to contact us. We would be happy to discuss your project
+      and see how we can help you achieve your goals.</p>
+
+    <h2>Our Team</h2>
+
+    <p>We are a team of talented individuals who are passionate about creating beautiful and user-friendly websites. We
+      each have our own unique skills and experience, but we are all united by our common goal of creating websites that
+      our clients will love.</p>
+
+    <p>Here is a brief overview of our team members:</p>
+
+    <ul>
+      <li>Jane Doe, CEO & Founder</li>
+      <li>Mike Ross, Art Director</li>
+      <li>John Smith, Front-End Developer</li>
+      <li>Janet Jones, Back-End Developer</li>
+    </ul>
+
+    <p>We are all committed to providing our clients with the best possible service. We are always available to answer
+      your questions and help you through the design and development process.</p>
+
+    <h2>Contact Us</h2>
+
+    <p>If you are interested in learning more about our services, please contact us at <a
+        href="mailto:info@yourcompany.com">info@yourcompany.com</a> or call us at 1-800-555-1212.</p>
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciepe App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</head>
+<body>
+   <div class="container mt-5">
+    <form action="" class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <h2>Add Reciepe</h2>
+        <hr>
+        <div class="mb-3">
+            <label for="" class="form-label">Reciepe Name</label>
+         <input type="text" required
+          class="form-control" name="reciepe_name" id="" aria-describedby="helpId" placeholder="">
+        
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Reciepe Desc</label>
+            <textarea class="form-control"  required name="reciepe_description" id="" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="" class="form-label">Reciepe Image</label>
+            <input type="file" class="form-control" name="reciepe_image" id="" placeholder="" aria-describedby="fileHelpId">
+            
+        </div>
+        <button type="submit" class="btn btn-success">Add Reciepe</button>
+        </form>
+
+   </div>
+
+   <div class="container table card ">
+
+    {{ reciepie }}
+
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Reciepe Name</th>
+            <th scope="col">Reciepie Description</th>
+            <th scope="col">Reciepe Image</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for rec in reciepe %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{rec.reciepe_name}}</td>
+            <td>{{rec.reciepe_description}}</td>
+            <td>{{rec.reciepe_image}}</td>
+          </tr>
+
+            {% endfor %}
+         
+        </tbody>
+      </table>
+
+   </div>
+</body>
+</html>
