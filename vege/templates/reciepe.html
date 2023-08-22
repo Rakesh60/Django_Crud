@@ -58,7 +58,7 @@
             <th scope="row">{{forloop.counter}}</th>
             <td>{{rec.reciepe_name}}</td>
             <td>{{rec.reciepe_description}}</td>
-            <td>{{rec.reciepe_image}}</td>
+            <td><img width="50" src="/media/{{rec.reciepe_image}}" alt=""></td>
           </tr>
 
             {% endfor %}

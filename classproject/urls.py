@@ -20,9 +20,21 @@ from about.views import *
 from home.views import *
 from vege.views import *
 
+#below this we have added three modules
+from django.conf.urls.static import static
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+#end
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/',about,name='about'),
     path('',home,name='home'),
     path('vege/',reciepies,name='reciepe'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns +=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+
+urlpatterns += staticfiles_urlpatterns()
