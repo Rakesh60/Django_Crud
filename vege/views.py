@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
 from .models import *
+from django.contrib.auth.models import User
 
 # Create your views here.
 def reciepies(request):
@@ -70,3 +71,30 @@ def update_reciepe(request,rec_id):
         return redirect('/vege/')
     context={'recipe':queryset}
     return render(request,'updaterecipe.html',context)
+
+
+def login_handel(request):
+    return render(request,'login.html')
+
+
+
+
+
+def register_handel(request):
+    if request.method=='POST':
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
+        user_name=request.POST.get('user_name')
+        password=request.POST.get('password')
+        
+        user=User.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            username=user_name
+            )
+        
+        user.set_password(password)
+        user.save()
+        return redirect('/register/')
+        
+    return render(request,'register.html')
