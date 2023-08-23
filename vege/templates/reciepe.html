@@ -13,6 +13,8 @@
 </head>
 
 <body>
+  <span class="badge bg-success m-5">{{request.user.first_name}}</span>
+  <a href="/logout/">Logout</a>
   <div class="container mt-5">
     <form action="" class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
       {% csrf_token %}
@@ -56,7 +58,9 @@
 
   <div class="container table card mt-5">
 
-    {{ reciepie }}
+   
+
+ 
 
 
     <table class="table ">

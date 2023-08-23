@@ -8,5 +8,7 @@ urlpatterns=[
      path('update/<rec_id>/',views.update_reciepe,name='reciepe'),
      path('login/',views.login_handel,name='login'),
      path('register/',views.register_handel,name='register'),
+     path('logout/',views.logout_handel,name='logout'),
+     
      
 ]

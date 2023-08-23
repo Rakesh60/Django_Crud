@@ -31,6 +31,7 @@ urlpatterns = [
     path('about/',about,name='about'),
     path('',home,name='home'),
     path('', include('vege.urls')),
+   
 
 ]
 

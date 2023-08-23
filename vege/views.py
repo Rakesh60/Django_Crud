@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect,HttpResponse
 from .models import *
 from django.contrib.auth.models import User
-
+from django.contrib import messages
+from django.contrib.auth import authenticate,login,logout
 # Create your views here.
 def reciepies(request):
     if request.method=="POST":
@@ -73,8 +74,8 @@ def update_reciepe(request,rec_id):
     return render(request,'updaterecipe.html',context)
 
 
-def login_handel(request):
-    return render(request,'login.html')
+
+ 
 
 
 
@@ -87,6 +88,12 @@ def register_handel(request):
         user_name=request.POST.get('user_name')
         password=request.POST.get('password')
         
+        user=User.objects.filter(username=user_name)
+        if user.exists():
+            messages.info(request, "User name already taken")
+            return redirect('/register/')
+            
+        
         user=User.objects.create(
             first_name=first_name,
             last_name=last_name,
@@ -95,6 +102,42 @@ def register_handel(request):
         
         user.set_password(password)
         user.save()
+        messages.info(request, "Account created successfully")
         return redirect('/register/')
         
     return render(request,'register.html')
+
+
+def login_handel(request):
+    if request.method=='POST':
+        user_name=request.POST.get('user_name')
+        password=request.POST.get('password')
+    
+        if not User.objects.filter(username=user_name).exists():
+            messages.error(request,'invalid user name')
+            return redirect('/login/')
+        
+        user=authenticate(username=user_name,password=password)
+        if user is None:
+           messages.error(request,"username/password did'nt matched")
+           
+        else:
+            login(request,user)
+            return redirect('/vege/')
+             
+        
+        
+    
+    
+    
+    return render(request,'login.html')
+
+
+def logout_handel(request):
+    logout(request)
+    
+    return redirect('/login')
+    
+            
+        
+    
