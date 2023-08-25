@@ -3,7 +3,7 @@ import random
 from .models import *
 fake = Faker()
 
-
+#This is For Inserting Dummy data
 def seed_db(n=10) -> None:
     try:
         for _ in range(n):
