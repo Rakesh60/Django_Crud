@@ -3,7 +3,15 @@ from .models import *
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
+
+
+
+
+#create query
+@login_required(login_url="/login/")
 def reciepies(request):
     if request.method=="POST":
         data=request.POST
@@ -17,7 +25,7 @@ def reciepies(request):
         return redirect('/vege/')
     
     
-    
+    #Read query
     queryset=Reciepe.objects.all()
     if request.GET.get('search'):
         queryset=queryset.filter(reciepe_name__icontains=request.GET.get('search'))
@@ -28,6 +36,8 @@ def reciepies(request):
     return render(request,'reciepe.html',context)
 
 
+#delete query
+@login_required(login_url="/login/")
 def delete_reciepe(request,rec_id):
 
     queryset=Reciepe.objects.get(id=rec_id)
@@ -55,6 +65,7 @@ def delete_reciepe(request,rec_id):
 
 
 #update query
+@login_required(login_url="/login/")
 def update_reciepe(request,rec_id):
     queryset=Reciepe.objects.get(id=rec_id)
     if request.method=='POST':
@@ -132,7 +143,7 @@ def login_handel(request):
     
     return render(request,'login.html')
 
-
+@login_required(login_url="/login/")
 def logout_handel(request):
     logout(request)
     
