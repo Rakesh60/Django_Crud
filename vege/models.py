@@ -31,6 +31,9 @@ class StudentID(models.Model):
 class Subject(models.Model):
     subject_name=models.CharField(max_length=100)
     
+    def __str__(self) -> str:
+        return self.subject_name
+    
     
     
     
