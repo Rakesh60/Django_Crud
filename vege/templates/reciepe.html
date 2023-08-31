@@ -80,8 +80,10 @@
           <td>{{rec.reciepe_name}}</td>
           <td>{{rec.reciepe_description}}</td>
           <td><img width="50" src="/media/{{rec.reciepe_image}}" alt=""></td>
-          <td><a href="/delete/{{rec.id}}" class="btn btn-danger" disabled>Delete </a></td>
-          <td><a href="/update/{{rec.id}}" class="btn btn-warning">Update</a></td>
+          <!-- <td><a href="/delete/{{rec.id}}" class="btn  btn-disabled">Delete </a></td> -->
+          
+          <td><a href="#" class="btn btn-danger btn-lg disabled" role="button" aria-disabled="true">Delete</a></td>
+          <td><button disabled><a href="/update/{{rec.id}}" class="btn btn-warning">Update</a></button></td>
         </tr>
 
         {% endfor %}
